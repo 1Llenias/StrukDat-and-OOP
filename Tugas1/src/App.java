@@ -13,7 +13,7 @@ public class App {
         taxiDriver.drive(familyCar);
         busDriver.drive(bus);
 
-        bicycle.setSpeed(0);
+        bicycle.setMaxSpeed(0);
 
         busDriver.drive(bicycle);
         taxiDriver.drive(futureCar);
@@ -39,7 +39,7 @@ class Vehicle {
     public int getYear() {
         return year;
     }
-    public int getSpeed() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
@@ -49,7 +49,7 @@ class Vehicle {
     public void setYear(int year) {
         this.year = year;
     }
-    public void setSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 }
@@ -61,10 +61,10 @@ abstract class Driver {
 class TaxiDriver extends Driver {
     @Override  
     void drive(Vehicle vehicle) {
-        if(vehicle.getSpeed() >= 180){
+        if(vehicle.getMaxSpeed() >= 180){
             System.out.println("The taxi driver is joining Tokyo Drift using " + vehicle.getBrand() + " " + vehicle.getYear() + " now");
         }
-        else if(vehicle.getSpeed() <= 0){
+        else if(vehicle.getMaxSpeed() <= 0){
             System.out.println("Mana jalan oi");
         }
         else{
@@ -76,10 +76,10 @@ class TaxiDriver extends Driver {
 class BusDriver extends Driver {
     @Override
     void drive(Vehicle vehicle) {
-        if(vehicle.getSpeed() >= 180){
+        if(vehicle.getMaxSpeed() >= 180){
             System.out.println("The bus driver is driving " + vehicle.getBrand() + " " + vehicle.getYear() + " with ugal ugalan now");
         }
-        else if(vehicle.getSpeed() <= 0){
+        else if(vehicle.getMaxSpeed() <= 0){
             System.out.println("Mogok keknya, smgd");
         }
         else{
